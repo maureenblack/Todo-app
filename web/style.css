@@ -5,6 +5,7 @@
   box-sizing: border-box;
   background: rgb(44, 43, 43);
   color: white;
+  padding: 0.5rem;
 }
 
 html,
@@ -32,12 +33,27 @@ body {
 }
 
 #todo-list div {
-  padding: 5px 0 5px 0;
+  padding: 0.6rem;
   border-bottom: dotted grey 1px;
+  background: #000;
 }
 
 #todo-list div span {
   margin-left: 10px;
+  background: none;
+}
+
+button {
+  background: rgb(166, 25, 25);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}
+
+.btn:hover {
+  transition: ease all 0.5s;
+  background: rgb(222, 4, 109);
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

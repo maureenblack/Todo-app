@@ -31,14 +31,16 @@ void updateTodos() {
     ButtonElement buttonRemove = ButtonElement();
     Element span = Element.span();
 
-    buttonRemove.text = 'clear';
+    buttonRemove.className = 'btn';
     buttonRemove.id = todo!.id.toString();
     buttonRemove.onClick.listen(removeTodo);
+    buttonRemove.text = 'clear';
 
     span.text = todo.text;
 
     div.children.add(buttonRemove);
     div.children.add(span);
+    div.className = 'todoClass';
     uiList!.children.add(div);
   });
 }
