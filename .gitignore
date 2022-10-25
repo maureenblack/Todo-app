@@ -2,5 +2,6 @@
 .dart_tool/
 .packages
 
+./web/7main.dart
 # Conventional directory for build output.
 build/
