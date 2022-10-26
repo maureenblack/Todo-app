@@ -34,8 +34,10 @@ body {
 }
 
 #todo-list div {
+  display: flex;
+  justify-content: space-between;
   padding: 0.6rem;
-  border-bottom: dotted grey 1px;
+  border-bottom: dotted rgb(255, 188, 4) 1px;
   background: #000;
 }
 
@@ -56,7 +58,22 @@ button {
     cursor: pointer;
   }
 }
+input {
+  margin: 10px 0;
+  size: 1rem;
+}
 // .todoClass {
 //   padding: 5rem;
 //   background: #000;
 // }
+.btnClass {
+  display: flex;
+  gap: 10px;
+}
+
+.completed {
+  background-color: green;
+}
+.uncomplete {
+  background: brown;
+}

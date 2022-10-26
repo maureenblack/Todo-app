@@ -28,18 +28,37 @@ void updateTodos() {
 
   todoList.forEach((todo) {
     DivElement div = DivElement();
+    Element spanTwo = Element.span();
     ButtonElement buttonRemove = ButtonElement();
     Element span = Element.span();
+    ButtonElement doneButton = ButtonElement();
 
     buttonRemove.className = 'btn';
     buttonRemove.id = todo!.id.toString();
     buttonRemove.onClick.listen(removeTodo);
     buttonRemove.text = 'clear';
 
-    span.text = todo.text;
+    if (!todo.done) {
+      doneButton.text = 'done';
+      doneButton.className = 'btn uncomplete';
+    } else {
+      doneButton.text = 'completed';
+      doneButton.className = 'btn completed';
+    }
 
-    div.children.add(buttonRemove);
+    doneButton.id = todo.id.toString();
+
+    // doneButton.onClick.listen(removeTodo);
+
+    span.text = todo.text;
+    // spanTwo.children.add()
+    spanTwo.children.add(buttonRemove);
+    spanTwo.children.add(doneButton);
+    spanTwo.className = 'btnClass';
+
     div.children.add(span);
+    div.children.add(spanTwo);
+
     div.className = 'todoClass';
     uiList!.children.add(div);
   });
@@ -48,7 +67,7 @@ void updateTodos() {
 void removeTodo(MouseEvent event) {
   event.stopPropagation();
 
-  Element? div = (event.currentTarget as Element).parent;
+  Element? div = (event.currentTarget as Element).parent?.parent;
   Element button = (event.currentTarget as Element);
 
   int key = int.parse(button.id.split('-')[0]);
@@ -66,8 +85,10 @@ class Todo {
   static int _id = 0; //fix ID incrementation.
   int id;
   final String? text;
+  bool done;
 
   Todo(
     this.text,
-  ) : this.id = _id++;
+  )   : this.id = _id++,
+        this.done = true;
 }
