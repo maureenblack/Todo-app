@@ -57,7 +57,8 @@ void updateTodos() {
     // div.children.add(span);
     div.children.add(spanTwo);
 
-    div.className = 'todoClass rounded border-botom border-3 border-warning';
+    div.className =
+        'todoClass px-3  rounded border-botom border-3 border-warning';
     uiList.children.add(div);
   });
 }

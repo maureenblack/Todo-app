@@ -1,4 +1,5 @@
 import 'dart:html';
+
 import 'Todo.dart';
 import 'addTodo.dart';
 
@@ -13,6 +14,7 @@ late TableElement table;
 late FormElement form;
 
 List<Todo?> todoList = [];
+List<Todo?> comList = [];
 
 void main() {
   // Initialization of the variables

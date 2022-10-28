@@ -36,6 +36,17 @@ body {
   // padding: 0.4rem;
 }
 
+#todo-complete div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem;
+  // border-bottom: dotted rgb(255, 188, 4) 1px;
+  color: black;
+  // padding: 2rem;
+  margin-bottom: 5px;
+}
+
 #todo-list div {
   display: flex;
   justify-content: space-between;
