@@ -34,10 +34,11 @@ body {
 #todo-list div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.6rem;
-  border-bottom: dotted rgb(255, 188, 4) 1px;
   color: black;
-  background: rgb(198, 195, 195);
+  background: rgb(243, 240, 240);
+  margin-bottom: 5px;
 }
 
 #todo-list div span {

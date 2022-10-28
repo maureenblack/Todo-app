@@ -1,8 +1,8 @@
 import 'dart:html';
 import 'Todo.dart';
 import 'addTodo.dart';
-import 'removeTodo.dart';
 
+// Declaration of the variables
 late InputElement todoInput;
 late SelectElement priority;
 late InputElement date;
@@ -15,6 +15,7 @@ late FormElement form;
 List<Todo?> todoList = [];
 
 void main() {
+  // Initialization of the variables
   todoInput = querySelector('#todo') as InputElement;
   date = querySelector('#datepicker') as InputElement;
   priority = querySelector('#priority') as SelectElement;
@@ -23,5 +24,4 @@ void main() {
   buttonClear = querySelector('#clear') as ButtonElement;
 
   todoInput.onChange.listen(addTodo);
-  buttonClear.onClick.listen(removeAllTodos);
 }
