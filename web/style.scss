@@ -38,6 +38,8 @@ body {
 
 #todo-complete div {
   display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem;
@@ -49,6 +51,8 @@ body {
 
 #todo-list div {
   display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem;

@@ -24,6 +24,8 @@ void completeTodo(MouseEvent event) {
 }
 
 void updateCompleteList() {
+  uiCompleteList.children.clear();
+
   comList.forEach((todo) {
     DivElement div = DivElement();
     Element spanTwo = Element.div();
