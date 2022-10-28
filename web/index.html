@@ -45,7 +45,6 @@
                         type="text"
                         id="todo"
                         class="form-control"
-                        value="test"
                       />
 
                       <div class="col-12">
@@ -100,16 +99,23 @@
                   <div
                     id="todo-list"
                     class="row border-bottom border-3 border-succes"
-                  ></div>
+                  >
+                    <div
+                      id="empty-list"
+                      class="h3 text-info text-center justify-content-center text-capitalize"
+                    >
+                      no Todo tasks
+                    </div>
+                  </div>
                 </ol>
                 <div class="container-fluid">
                   <div class="h4 text-warning">Completed Tasks</div>
                   <div class="row head border-bottom border-3 border-warning">
                     <div class="col-2 text-primary">No</div>
                     <div class="col text-primary">Task</div>
-                    <div class="col text-primary">Status</div>
+                    <!-- <div class="col text-primary">Status</div> -->
                     <div class="col text-primary">Priority</div>
-                    <div class="col text-primary">Actions</div>
+                    <div class="col text-primary">Status</div>
                   </div>
                   <ol style="margin-left: -20px">
                     <div

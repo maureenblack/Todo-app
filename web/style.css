@@ -34,7 +34,6 @@ body {
 #todo-complete div {
   display: flex;
   flex-wrap: wrap;
-  overflow: auto;
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem;
@@ -44,14 +43,18 @@ body {
 
 #todo-list div {
   display: flex;
-  flex-wrap: wrap;
-  overflow: auto;
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem;
   color: black;
   background: rgb(243, 240, 240);
   margin-bottom: 5px;
+}
+
+#todo-list div .title {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 #todo-list div span {

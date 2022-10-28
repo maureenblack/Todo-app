@@ -66,7 +66,7 @@ void updateCompleteList() {
     // late String demoText = todo.done ? 'completed' : 'in progress';
     late String demoText = 'completed';
     colThree.appendHtml(demoText);
-    div.children.add(colThree);
+    // div.children.add(colThree);
 
     //Four column in the todo list
     colFour.className = 'col';

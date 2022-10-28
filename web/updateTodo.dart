@@ -5,7 +5,14 @@ import 'removeTodo.dart';
 void updateTodos() {
   uiList.children.clear();
 
+  if (todoList.isNotEmpty) {
+    emptyList.className = 'd-none';
+  }
+
   todoList.forEach((todo) {
+    DateTime fomatter = DateTime.parse(todo!.dueDate);
+    String createdFormatted =
+        "${fomatter.year.toString()}-${fomatter.month.toString().padLeft(2, '0')}-${fomatter.day.toString().padLeft(2, '0')}";
     DivElement div = DivElement();
     Element spanTwo = Element.div();
     ButtonElement buttonRemove = ButtonElement();
@@ -36,14 +43,18 @@ void updateTodos() {
     div.children.add(colOne);
 
     //Second column in the todo list
-    colTwo.className = 'col';
+    colTwo.className = 'col title';
     colTwo.appendHtml(todo.text.toString());
     div.children.add(colTwo);
 
     //Third column in the todo list
-    colThree.className = 'col';
+    colThree.className = 'col row';
     late String demoText = todo.done ? 'completed' : 'in progress';
     colThree.appendHtml(demoText);
+
+    colThree
+        .appendHtml('<div class="row text-warning"> $createdFormatted</div>');
+
     div.children.add(colThree);
 
     //Four column in the todo list
@@ -52,7 +63,11 @@ void updateTodos() {
     div.children.add(colFour);
 
     spanTwo.children.add(doneButton);
-    spanTwo.className = 'col';
+    if (DateTime.now().isAfter(DateTime.parse(todo.dueDate))) {
+      spanTwo.appendHtml(
+          '<div class="d-flex row col-12 text-danger text-center justify-content-end"> OverDue</div>');
+    }
+    spanTwo.className = 'col row';
 
     // div.children.add(span);
     div.children.add(spanTwo);
