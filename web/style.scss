@@ -3,8 +3,9 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  background: rgb(44, 43, 43);
-  color: white;
+  // background: rgb(44, 43, 43);
+
+  // color: white;
   padding: 0.5rem;
 }
 
@@ -15,6 +16,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  // background: rgb(112, 111, 111);
 }
 
 #output {
@@ -23,13 +25,14 @@ body {
 }
 
 #todo {
-  height: 25px;
+  height: 40px;
   width: 100%;
   border-radius: 5px;
 }
 
 #todo-list {
   margin: 25px 0 25px 0;
+  color: rgb(130, 8, 8);
   // padding: 0.4rem;
 }
 
@@ -38,7 +41,8 @@ body {
   justify-content: space-between;
   padding: 0.6rem;
   border-bottom: dotted rgb(255, 188, 4) 1px;
-  background: #000;
+  color: black;
+  background: rgb(194, 194, 194);
 }
 
 #todo-list div span {
