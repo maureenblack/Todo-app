@@ -19,7 +19,6 @@ void main() {
   priority = querySelector('#priority') as SelectElement;
   uiList = querySelector('#todo-list') as DivElement;
   buttonClear = querySelector('#clear') as ButtonElement;
-  // form = querySelector('#add') as FormElement;
 
   todoInput.onChange.listen(addTodo);
   buttonClear.onClick.listen(removeAllTodos);

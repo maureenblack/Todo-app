@@ -24,19 +24,9 @@ void updateTodos() {
     buttonRemove.onClick.listen(removeTodo);
     buttonRemove.text = 'clear';
 
-    // if (!todo.done) {
-    //   doneButton.text = 'in Progress';
-    //   doneButton.className = 'btn uncomplete';
-    // } else {
-    //   doneButton.text = 'completed';
-    //   doneButton.className = '  completed';
-    // }
-
     doneButton.text = 'Done';
     doneButton.className = 'btn btn-success uncomplete';
     doneButton.id = todo.id.toString();
-
-    // doneButton.onClick.listen(removeTodo);
 
     //First column in the todo list
     colOne.className = 'col-2 lend';
@@ -51,10 +41,8 @@ void updateTodos() {
 
     //Third column in the todo list
     colThree.className = 'col';
-    late String demoText = 'in progress';
-    // late String demoText = todo.done ? 'completed' : 'in progress';
-
-    colTwo.appendHtml(demoText);
+    late String demoText = todo.done ? 'completed' : 'in progress';
+    colThree.appendHtml(demoText);
     div.children.add(colThree);
 
     //Four column in the todo list
@@ -62,8 +50,6 @@ void updateTodos() {
     colFour.appendHtml(todo.priority.toString());
     div.children.add(colFour);
 
-    // span.text = todo.text;
-    // spanTwo.children.add(buttonRemove);
     spanTwo.children.add(doneButton);
     spanTwo.className = 'col';
 
