@@ -21,10 +21,11 @@ void updateTodos() {
 
     buttonRemove.className = 'btn btn-primary';
     buttonRemove.id = todo!.id.toString();
-    buttonRemove.onClick.listen(removeTodo);
+
     buttonRemove.text = 'clear';
 
     doneButton.text = 'Done';
+    doneButton.onClick.listen(completeTodo);
     doneButton.className = 'btn btn-success uncomplete';
     doneButton.id = todo.id.toString();
 

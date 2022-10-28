@@ -1,7 +1,7 @@
 import 'dart:html';
 import 'main.dart';
 
-void removeTodo(MouseEvent event) {
+void completeTodo(MouseEvent event) {
   event.stopPropagation();
 
   Element? div = (event.currentTarget as Element).parent?.parent;
