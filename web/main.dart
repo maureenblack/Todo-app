@@ -1,11 +1,14 @@
 import 'dart:html';
+import 'dart:js_util';
 
 import 'Todo.dart';
 import 'addTodo.dart';
+import 'sort.dart';
 
 // Declaration of the variables
 late InputElement todoInput;
 late SelectElement priority;
+late SelectElement sort;
 late InputElement date;
 late DivElement uiList;
 late DivElement uiCompleteList;
@@ -22,12 +25,17 @@ Future<void> main() async {
   todoInput = querySelector('#todo') as InputElement;
   date = querySelector('#datepicker') as InputElement;
   priority = querySelector('#priority') as SelectElement;
+  sort = querySelector('#sort') as SelectElement;
   uiList = querySelector('#todo-list') as DivElement;
   uiCompleteList = querySelector('#todo-complete') as DivElement;
   addButton = querySelector('#addBtn') as ButtonElement;
   emptyList = querySelector('#empty-list') as DivElement;
 
   addButton.onClick.listen(addTodo);
+  sort.onChange.listen((event) {
+    // print(sort.value);
+    sortList(sort.value.toString());
+  });
 
   await todoInput.onKeyUp.contains('Enter') ? addTodo : null;
 }

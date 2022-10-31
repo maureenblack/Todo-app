@@ -47,7 +47,7 @@ body {
   align-items: center;
   padding: 0.6rem;
   color: black;
-  background: rgb(243, 240, 240);
+  background: rgb(84, 229, 248);
   margin-bottom: 5px;
 }
 
@@ -91,4 +91,16 @@ input {
 
 .uncomplete {
   background: brown;
+}
+
+.text-danger {
+  color: red;
+}
+
+.text-warning {
+  color: orange;
+}
+
+.text-success {
+  color: green;
 }/*# sourceMappingURL=style.css.map */

@@ -49,17 +49,29 @@ void updateTodos() {
 
     //Third column in the todo list
     colThree.className = 'col row';
+
     late String demoText = todo.done ? 'completed' : 'in progress';
     colThree.appendHtml(demoText);
 
     colThree
-        .appendHtml('<div class="row text-warning"> $createdFormatted</div>');
+        .appendHtml('<div class="row text-success"> $createdFormatted</div>');
 
     div.children.add(colThree);
 
     //Four column in the todo list
-    colFour.className = 'col';
-    colFour.appendHtml(todo.priority.toString());
+    if (todo.priority.toString() == '3') {
+      colFour.className =
+          'justify-content-center text-danger col  rounded-pill';
+      colFour.appendHtml('high');
+    } else if (todo.priority.toString() == '2') {
+      colFour.className =
+          ' justify-content-center text-warning col  rounded-pill';
+      colFour.appendHtml('medium');
+    } else {
+      colFour.className =
+          ' justify-content-center text-success col  rounded-pill';
+      colFour.appendHtml('low');
+    }
     div.children.add(colFour);
 
     spanTwo.children.add(doneButton);
@@ -73,7 +85,7 @@ void updateTodos() {
     div.children.add(spanTwo);
 
     div.className =
-        'todoClass px-3  rounded border-botom border-3 border-warning';
+        'todoClass shadow px-3  rounded border-botom border-3 border-warning';
     uiList.children.add(div);
   });
 }

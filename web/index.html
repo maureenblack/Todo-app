@@ -19,19 +19,23 @@
   </head>
 
   <body style="background-color: #eee" class="dark">
-    <section class="vh-100" style="background-color: #eee">
+    <section class="vh-100" style="background-color: rgb(237, 240, 241)">
       <div class="container-fluid py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-lg-9 col-xl-7">
-            <div class="card rounded-3">
+            <div
+              class="card rounded-3"
+              style="background-color: rgb(189, 243, 250)"
+            >
               <div class="card-body p-4">
                 <h2 class="text-center h2 display-2 mt-1 mb-3 pb-3">
                   To Do App
                 </h2>
 
                 <form
+                  style="background-color: rgb(147, 227, 237)"
                   id="add"
-                  class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2 border border-3 border-succes"
+                  class="row row-cols-lg-auto g-3 justify-content-center shadow align-items-center mb-4 pb-2 rounded"
                 >
                   <div class="col-12">
                     <div class="form-outline">
@@ -57,9 +61,9 @@
                           name="priority"
                           id="priority"
                         >
-                          <option class="btn" value="low">low</option>
-                          <option value="medium">medium</option>
-                          <option value="high">high</option>
+                          <option class="btn" value="1">low</option>
+                          <option value="2">medium</option>
+                          <option value="3">high</option>
                         </select>
                       </div>
                       <div class="col-12">
@@ -68,7 +72,7 @@
                           class="btn btn-outline-primary"
                           required
                           value="2022-10-29"
-                          type="date"
+                          type="datetime-local"
                           id="datepicker"
                           name="date"
                         />
@@ -87,6 +91,19 @@
                 </form>
                 <div class="container">
                   <div class="display-6 text-warning">All Tasks</div>
+                  <div class="col-12">
+                    <label for="priority">Sort List by:</label>
+                    <select
+                      class="btn border-warning p-2"
+                      required
+                      name="sort"
+                      id="sort"
+                    >
+                      <option value="">-</option>
+                      <option class="btn" value="name">name</option>
+                      <option value="priority">priority</option>
+                    </select>
+                  </div>
                   <div class="row head border-bottom border-3 border-warning">
                     <div class="col-2 text-primary">No</div>
                     <div class="col text-primary">Task</div>
@@ -102,7 +119,7 @@
                   >
                     <div
                       id="empty-list"
-                      class="h3 text-info text-center justify-content-center text-capitalize"
+                      class="h3 text-white rounded text-center justify-content-center text-capitalize"
                     >
                       no Todo tasks
                     </div>
@@ -135,7 +152,7 @@
         <!-- <label for="todo">What do you want todo?</label> -->
         <!-- <input type="text" id="todo" placeholder="Enter a Todo." /> -->
 
-        <button class="btn warning" id="clear">Clear All Todos</button>
+        <button class="btn warning" id="clear"></button>
       </div>
     </div>
 
