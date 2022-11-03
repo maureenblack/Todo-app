@@ -5,12 +5,29 @@ class Todo {
   bool done;
   String priority;
   int pt;
-  DateTime createdTime;
+  String createdTime;
   String dueDate;
 
-  Todo(this.text, this.dueDate, this.priority)
+  Todo(this.text, this.dueDate, this.priority, this.createdTime)
       : this.id = _id++,
-        this.createdTime = DateTime.now(),
         this.done = false,
         this.pt = int.parse(priority);
+  Todo.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        text = json['text'],
+        dueDate = json['dueDate'],
+        pt = json['pt'],
+        priority = json['priority'],
+        createdTime = json['createdTime'],
+        done = json['done'];
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'text': text,
+        'dueDate': dueDate,
+        'pt': pt,
+        'priority': priority,
+        'createdTime': createdTime,
+        'done': done
+      };
 }

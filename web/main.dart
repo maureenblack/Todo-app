@@ -4,6 +4,7 @@ import 'dart:js_util';
 import 'Todo.dart';
 import 'addTodo.dart';
 import 'sort.dart';
+import 'storage.dart';
 
 // Declaration of the variables
 late InputElement todoInput;
@@ -31,11 +32,12 @@ Future<void> main() async {
   addButton = querySelector('#addBtn') as ButtonElement;
   emptyList = querySelector('#empty-list') as DivElement;
 
+  await getStorage();
   addButton.onClick.listen(addTodo);
   sort.onChange.listen((event) {
-    // print(sort.value);
     sortList(sort.value.toString());
   });
 
   await todoInput.onKeyUp.contains('Enter') ? addTodo : null;
+  // await test();
 }
