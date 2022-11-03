@@ -10,6 +10,10 @@ $ dart pub get
 
 $ webdev dev
 
+#### Sass watcher to live load the sass file
+
+$ Sass --watch /web/style.scss: /web/style.css
+
 #### For production server
 
 $ webdev build
