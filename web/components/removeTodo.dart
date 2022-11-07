@@ -1,10 +1,10 @@
 import 'dart:html';
 import '../class/Todo.dart';
 import '../main.dart';
+import 'sort.dart';
 import 'storage.dart';
 import 'updateTodo.dart';
 
-int _id = 0;
 void test(int id, event) async {
   // event.preventDefault();
   print('test function called $id with eveent $event');
@@ -37,6 +37,7 @@ void completeTodo(int id) {
 
 void updateCompleteList() {
   uiCompleteList.children.clear();
+  sortList("priority", comList);
 
   comList.forEach((todo) {
     DivElement div = DivElement();
@@ -81,8 +82,18 @@ void updateCompleteList() {
     // div.children.add(colThree);
 
     //Four column in the todo list
-    colFour.className = 'col';
-    colFour.appendHtml(todo.priority.toString());
+    // colFour.className = 'col';
+    // colFour.appendHtml(todo.priority.toString());
+    if (todo.priority.toString() == '3') {
+      colFour.className = 'text-danger col  rounded-pill';
+      colFour.appendHtml('high');
+    } else if (todo.priority.toString() == '2') {
+      colFour.className = 'text-warning col  rounded-pill';
+      colFour.appendHtml('medium');
+    } else {
+      colFour.className = 'text-success col  rounded-pill';
+      colFour.appendHtml('low');
+    }
     div.children.add(colFour);
 
     spanTwo.children.add(doneButton);

@@ -3,6 +3,7 @@ import 'class/Todo.dart';
 import 'components/addTodo.dart';
 import 'components/sort.dart';
 import 'components/storage.dart';
+import 'components/updateTodo.dart';
 
 // Declaration of the variables
 late InputElement todoInput;
@@ -33,8 +34,9 @@ Future<void> main() async {
   await getStorage();
   await getCompleteStorage();
   addButton.onClick.listen(addTodo);
-  sort.onChange.listen((event) {
-    sortList(sort.value.toString());
+  sort.onChange.listen((event) async {
+    sortList(sort.value.toString(), todoList);
+    updateTodos();
   });
 
   await todoInput.onKeyUp.contains('Enter') ? addTodo : null;
