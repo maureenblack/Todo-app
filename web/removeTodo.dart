@@ -1,6 +1,8 @@
 import 'dart:html';
 import 'Todo.dart';
 import 'main.dart';
+import 'storage.dart';
+import 'updateTodo.dart';
 
 int _id = 0;
 void test(int id, event) async {
@@ -9,23 +11,27 @@ void test(int id, event) async {
   completeTodo;
 }
 
-void completeTodo(MouseEvent event) {
+void completeTodo(int id) {
   print('complete Task called');
-  event.stopPropagation();
+  Todo? todo = todoList.elementAt(id);
 
-  Element? div = (event.currentTarget as Element).parent?.parent;
-  Element button = (event.currentTarget as Element);
+  // event.stopPropagation();
 
-  int key = int.parse(button.id.split('-')[0]);
-  print("The id is $key");
-  Iterable<Todo?> complete = todoList.where((todo) => todo?.id == key);
-  // comList.add(complete);
-  print("this task was just completed ${complete.first!.text}");
-  comList.add(complete.first);
+  // Element? div = (event.currentTarget as Element).parent?.parent;
+  // Element button = (event.currentTarget as Element);
+
+  // int key = int.parse(button.id.split('-')[0]);
+  print("The id is ${todo!.id}");
+  // Iterable<Todo?> complete = todoList.where((todo) => todo?.id == key);
+  comList.add(todo);
+  print("this task was just completed ${todo.text}");
+  // comList.add(complete.first);
   print("Length of complete list is ${comList.length}");
 
-  todoList.removeWhere((todo) => todo?.id == key);
-  div!.remove();
+  // todoList.removeWhere((todo) => todo?.id == key);
+  // div!.remove();
+  removeTodos(id);
+  addCompleteStorage(comList);
   updateCompleteList();
 }
 

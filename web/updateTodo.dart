@@ -3,6 +3,7 @@ import 'Todo.dart';
 import 'addTodo.dart';
 import 'main.dart';
 import 'removeTodo.dart';
+import 'storage.dart';
 
 void updateTodos() async {
   uiList.children.clear();
@@ -42,7 +43,7 @@ void updateTodos() async {
     buttonRemove.onClick.listen((event) => {editTodos(index)});
 
     doneButton.text = 'Done';
-    doneButton.onClick.listen(completeTodo);
+    doneButton.onClick.listen((event) => {completeTodo(index)});
     doneButton.className = 'btn btn-success uncomplete';
     doneButton.id = todo.id.toString();
 
@@ -108,6 +109,11 @@ void editTodos(int id) {
   date.value = todo?.dueDate;
   priority.value = todo?.priority;
   addTodo;
+  removeTodos(id);
+}
+
+void removeTodos(int id) {
   todoList.removeAt(id);
+  addStorage(todoList);
   updateTodos();
 }

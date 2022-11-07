@@ -33,6 +33,7 @@ Future<void> main() async {
   emptyList = querySelector('#empty-list') as DivElement;
 
   await getStorage();
+  await getCompleteStorage();
   addButton.onClick.listen(addTodo);
   sort.onChange.listen((event) {
     sortList(sort.value.toString());
