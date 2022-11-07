@@ -1,10 +1,8 @@
 import 'dart:html';
-import 'dart:js_util';
-
-import 'Todo.dart';
-import 'addTodo.dart';
-import 'sort.dart';
-import 'storage.dart';
+import 'class/Todo.dart';
+import 'components/addTodo.dart';
+import 'components/sort.dart';
+import 'components/storage.dart';
 
 // Declaration of the variables
 late InputElement todoInput;

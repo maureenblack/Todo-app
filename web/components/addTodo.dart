@@ -1,6 +1,6 @@
 import 'dart:html';
-import 'Todo.dart';
-import 'main.dart';
+import '../class/Todo.dart';
+import '../main.dart';
 import 'storage.dart';
 import 'updateTodo.dart';
 

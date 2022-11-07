@@ -1,5 +1,5 @@
 import 'dart:html';
-import 'main.dart';
+import '../main.dart';
 import 'removeTodo.dart';
 import 'updateTodo.dart';
 

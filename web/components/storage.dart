@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:html';
-import 'Todo.dart';
-import 'main.dart';
+import '../class/Todo.dart';
+import '../main.dart';
 import 'removeTodo.dart';
 import 'updateTodo.dart';
 
