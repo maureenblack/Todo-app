@@ -3,8 +3,14 @@ import 'Todo.dart';
 import 'main.dart';
 
 int _id = 0;
+void test(int id, event) async {
+  // event.preventDefault();
+  print('test function called $id with eveent $event');
+  completeTodo;
+}
 
 void completeTodo(MouseEvent event) {
+  print('complete Task called');
   event.stopPropagation();
 
   Element? div = (event.currentTarget as Element).parent?.parent;
@@ -80,7 +86,7 @@ void updateCompleteList() {
     div.children.add(spanTwo);
 
     div.className =
-        'todoClass px-3 row text-white  bg-info rounded border-botom border-3 border-warning';
+        'odoClass px-3  rounded border-botom border-3 border-warning';
     uiCompleteList.children.add(div);
   });
 }

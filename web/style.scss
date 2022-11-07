@@ -1,12 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+$div-bg-color: rgb(240, 240, 240);
+$form-bg: rgba(255, 255, 255, 0.951);
+$body-bg: #eee;
+$bigger-div: rgb(232, 235, 244);
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  // background: rgb(44, 43, 43);
-
-  // color: white;
   padding: 0.5rem;
+}
+#main-section {
+  background: $bigger-div;
 }
 
 html,
@@ -16,7 +20,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  // background: rgb(112, 111, 111);
+  background: $bigger-div;
 }
 
 #output {
@@ -24,16 +28,8 @@ body {
   margin: 0 auto;
 }
 
-#todo {
-  height: 40px;
-  width: 100%;
-  border-radius: 5px;
-}
-
 #todo-list {
   margin: 25px 0 25px 0;
-  color: rgb(130, 8, 8);
-  // padding: 0.4rem;
 }
 
 #todo-complete div {
@@ -42,10 +38,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem;
-  // border-bottom: dotted rgb(255, 188, 4) 1px;
   color: black;
-  // padding: 2rem;
   margin-bottom: 5px;
+}
+.classComplete {
+  background: $div-bg-color;
 }
 
 #todo-list div {
@@ -53,10 +50,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem;
-  // border-bottom: dotted rgb(255, 188, 4) 1px;
-  color: black;
-  background: rgb(84, 229, 248);
-  // padding: 2rem;
+  background: $div-bg-color;
+
   margin-bottom: 5px;
 }
 
@@ -83,14 +78,7 @@ button {
     cursor: pointer;
   }
 }
-input {
-  margin: 10px 0;
-  size: 1rem;
-}
-// .todoClass {
-//   padding: 5rem;
-//   background: #000;
-// }
+
 .btnClass {
   display: flex;
   gap: 10px;

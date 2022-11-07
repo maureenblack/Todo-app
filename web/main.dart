@@ -23,7 +23,7 @@ List<Todo?> comList = [];
 
 Future<void> main() async {
   // Initialization of the variables
-  todoInput = querySelector('#todo') as InputElement;
+  todoInput = querySelector('#todoInput') as InputElement;
   date = querySelector('#datepicker') as InputElement;
   priority = querySelector('#priority') as SelectElement;
   sort = querySelector('#sort') as SelectElement;
@@ -39,5 +39,4 @@ Future<void> main() async {
   });
 
   await todoInput.onKeyUp.contains('Enter') ? addTodo : null;
-  // await test();
 }

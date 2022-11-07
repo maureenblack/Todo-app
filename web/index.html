@@ -18,41 +18,71 @@
     <script defer src="main.dart.js"></script>
   </head>
 
-  <body style="background-color: #eee" class="dark">
-    <section class="vh-100" style="background-color: rgb(237, 240, 241)">
+  <body class="dark">
+    <section id="main-section" class="vh-100">
       <button class="btn warning" id="clear">Clear</button>
       <div class="container-fluid py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-lg-9 col-xl-7">
-            <div
-              class="card rounded-3"
-              style="background-color: rgb(189, 243, 250)"
-            >
+            <div id="bigger-div" class="card rounded-3">
               <div class="card-body p-4">
                 <h2 class="text-center h2 display-2 mt-1 mb-3 pb-3">
                   To Do App
                 </h2>
 
                 <form
-                  style="background-color: rgb(147, 227, 237)"
                   id="add"
                   class="row row-cols-lg-auto g-3 justify-content-center shadow align-items-center mb-4 pb-2 rounded"
                 >
-                  <div class="col-12">
+                  <!-- NEw -->
+                  <div class="input-group rounded border">
+                    <input
+                      style="border: none"
+                      id="todoInput"
+                      type="text"
+                      class="form-control input-form"
+                      placeholder="Enter Todo"
+                      aria-label="Recipient's
+                    username with two button addons"
+                      aria-describedby="button-addon4"
+                    />
+                    <div class="input-group-append" id="button-addon4">
+                      <div class="select-form btn">
+                        <label for="priority">priority</label>
+                        <select
+                          class="btn border-warning p-2"
+                          required
+                          name="priority"
+                          id="priority"
+                        >
+                          <option value="1">low</option>
+                          <option value="2">medium</option>
+                          <option value="3">high</option>
+                        </select>
+                      </div>
+                      <!-- <button class="btn btn-outline-secondary" type="button">
+                        Button
+                      </button> -->
+                    </div>
+                  </div>
+
+                  <!-- NEW -->
+
+                  <div class="col-12-">
                     <div class="form-outline">
-                      <label class="form-label" for="todo"
-                        >Enter a task here</label
-                      >
-                      <input
+                      <!-- <label class="form-label" for="todo"
+                        >Enter a task here</label -->
+
+                      <!-- <input
                         name="title"
                         placeholder="Enter Task..."
                         required
                         type="text"
                         id="todo"
-                        class="form-control"
-                      />
+                        class="form-contro"
+                      /> -->
 
-                      <div class="col-12">
+                      <!-- <div class="col-12">
                         <label for="priority"
                           >Select the priority of the app</label
                         >
@@ -66,11 +96,11 @@
                           <option value="2">medium</option>
                           <option value="3">high</option>
                         </select>
-                      </div>
-                      <div class="col-12">
-                        <label for="datepicker">Select due date</label>
+                      </div> -->
+                      <div class="col-12 justify-content-start">
+                        <label for="datepicker">Due date</label>
                         <input
-                          class="btn btn-outline-primary"
+                          class="btn btn-outlined border"
                           required
                           value="2022-10-29"
                           type="datetime-local"
@@ -91,7 +121,7 @@
                   </div>
                 </form>
                 <div class="container">
-                  <div class="display-6 text-warning">All Tasks</div>
+                  <!-- <div class="display-6 text-warning">All Tasks</div> -->
                   <div class="col-12">
                     <label for="priority">Sort List by:</label>
                     <select
@@ -113,10 +143,10 @@
                     <div class="col text-primary">Actions</div>
                   </div>
                 </div>
-                <ol style="margin-left: -20px">
+                <ol style="margin-left: -20px" class="shadow">
                   <div
                     id="todo-list"
-                    class="row border-bottom border-3 border-succes"
+                    class="row border-bottom border-3 border-success"
                   >
                     <div
                       id="empty-list"
@@ -148,7 +178,7 @@
         </div>
       </div>
     </section>
-    <div id="output" ;>
+    <div id="output" class="shadow" ;>
       <div>
         <!-- <label for="todo">What do you want todo?</label> -->
         <!-- <input type="text" id="todo" placeholder="Enter a Todo." /> -->

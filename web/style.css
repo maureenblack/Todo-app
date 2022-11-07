@@ -6,6 +6,10 @@
   padding: 0.5rem;
 }
 
+#main-section {
+  background: rgb(232, 235, 244);
+}
+
 html,
 body {
   width: 100%;
@@ -13,6 +17,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  background: rgb(232, 235, 244);
 }
 
 #output {
@@ -20,15 +25,8 @@ body {
   margin: 0 auto;
 }
 
-#todo {
-  height: 40px;
-  width: 100%;
-  border-radius: 5px;
-}
-
 #todo-list {
   margin: 25px 0 25px 0;
-  color: rgb(130, 8, 8);
 }
 
 #todo-complete div {
@@ -41,13 +39,16 @@ body {
   margin-bottom: 5px;
 }
 
+.classComplete {
+  background: rgb(240, 240, 240);
+}
+
 #todo-list div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem;
-  color: black;
-  background: rgb(84, 229, 248);
+  background: rgb(240, 240, 240);
   margin-bottom: 5px;
 }
 
@@ -73,11 +74,6 @@ button {
   transition: ease all 0.5s;
   background: rgb(222, 4, 109);
   cursor: pointer;
-}
-
-input {
-  margin: 10px 0;
-  size: 1rem;
 }
 
 .btnClass {

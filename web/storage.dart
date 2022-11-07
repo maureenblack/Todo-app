@@ -42,10 +42,6 @@ getStorage() {
   return todoList;
 }
 
-test() {
-  print('in the test');
-}
-
 addStorage(List todolist) {
   print('\n adding to local storage');
   window.localStorage["todos"] = jsonEncode(todolist);

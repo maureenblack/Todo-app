@@ -1,15 +1,18 @@
 import 'dart:html';
+import 'Todo.dart';
+import 'addTodo.dart';
 import 'main.dart';
 import 'removeTodo.dart';
 
-void updateTodos() {
+void updateTodos() async {
   uiList.children.clear();
 
   if (todoList.isNotEmpty) {
     emptyList.className = 'd-none';
   }
 
-  todoList.forEach((todo) {
+  todoList.forEach((todo) async {
+    int index = todoList.indexOf(todo);
     DateTime fomatter = DateTime.parse(todo!.dueDate);
     String createdFormatted =
         "${fomatter.year.toString()}-${fomatter.month.toString().padLeft(2, '0')}-${fomatter.day.toString().padLeft(2, '0')}";
@@ -18,6 +21,11 @@ void updateTodos() {
     ButtonElement buttonRemove = ButtonElement();
     Element span = Element.span();
     ButtonElement doneButton = ButtonElement();
+    InputElement checkbox = InputElement();
+    checkbox.type = 'checkbox';
+    checkbox.onChange.listen((event) {
+      test(todo.id, event);
+    });
 
     // div elements in the todo list
     Element colOne = Element.div();
@@ -26,10 +34,12 @@ void updateTodos() {
     Element colFour = Element.div();
     Element colFive = Element.div();
 
-    buttonRemove.className = 'btn btn-primary';
-    buttonRemove.id = todo!.id.toString();
+    buttonRemove.className = 'btn btn-primary fas fa-pen me-3';
+    // buttonRemove.id = todo.id.toString();
+    buttonRemove.id = todoList.indexOf(todo).toString();
 
-    buttonRemove.text = 'clear';
+    buttonRemove.text = 'Edit';
+    buttonRemove.onClick.listen((event) => {editTodos(index)});
 
     doneButton.text = 'Done';
     doneButton.onClick.listen(completeTodo);
@@ -75,6 +85,7 @@ void updateTodos() {
     div.children.add(colFour);
 
     spanTwo.children.add(doneButton);
+    spanTwo.children.add(buttonRemove);
     if (DateTime.now().isAfter(DateTime.parse(todo.dueDate))) {
       spanTwo.appendHtml(
           '<div class="d-flex row col-12 text-danger text-center justify-content-end"> OverDue</div>');
@@ -85,7 +96,18 @@ void updateTodos() {
     div.children.add(spanTwo);
 
     div.className =
-        'todoClass shadow px-3  rounded border-botom border-3 border-warning';
+        'todoClass px-3  rounded border-botom border-3 border-warning';
     uiList.children.add(div);
   });
+}
+
+void editTodos(int id) {
+  print('edit function');
+  Todo? todo = todoList.elementAt(id);
+  todoInput.value = todo?.text;
+  date.value = todo?.dueDate;
+  priority.value = todo?.priority;
+  addTodo;
+  todoList.removeAt(id);
+  updateTodos();
 }

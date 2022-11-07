@@ -12,7 +12,7 @@ void addTodo(Event event) {
   todoList.add(todo);
 
   updateTodos();
-  test();
+
   todoInput.value = '';
   addStorage(todoList);
 }
