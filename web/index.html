@@ -17,19 +17,27 @@
     />
     <script defer src="main.dart.js"></script>
   </head>
-
+<style>
+  h2 {
+    background-color: rgb(141, 25, 5);
+    color: aliceblue;
+  }
+  .dark{
+    background-color: brown;
+    color: aliceblue;
+  }
+</style>
   <body class="dark">
     <section id="main-section" class="vh-100">
-      <button class="btn warning" id="clear">Clear</button>
+      <!-- <button class="btn warning" id="clear">Clear</button> -->
       <div class="container-fluid py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-lg-9 col-xl-7">
             <div id="bigger-div" class="card rounded-3">
               <div class="card-body p-4">
                 <h2 class="text-center h2 display-2 mt-1 mb-3 pb-3">
-                  To Do App
+                 My ToDo List
                 </h2>
-
                 <form
                   id="add"
                   class="row row-cols-lg-auto g-3 justify-content-center shadow align-items-center mb-4 pb-2 rounded"
@@ -41,64 +49,44 @@
                       id="todoInput"
                       type="text"
                       class="form-control input-form"
-                      placeholder="Enter Todo"
+                      placeholder="Enter Todo Item"
                       aria-label="Recipient's
                     username with two button addons"
                       aria-describedby="button-addon4"
                     />
                     <div class="input-group-append" id="button-addon4">
                       <div class="select-form btn">
-                        <label for="priority">priority</label>
+                        <label for="priority">Select Priority Level</label>
                         <select
-                          class="btn border-warning p-2"
-                          required
+                          class="btn border-danger p-2"
+                          
                           name="priority"
                           id="priority"
                         >
-                          <option value="1">low</option>
-                          <option value="2">medium</option>
-                          <option value="3">high</option>
+                          <option value="1">10%</option>
+                          <option value="1">20%</option>
+                          <option value="1">30%</option>
+                          <option value="1">40%</option>
+                          
+                          <option value="2">50%</option>
+                          <option value="2">60%</option>
+                          <option value="3">70%</option>
+                          <option value="3">80%</option>
+                          <option value="3">90%</option>
+                          <option value="3">100%</option>
                         </select>
                       </div>
-                      <!-- <button class="btn btn-outline-secondary" type="button">
-                        Button
-                      </button> -->
+                    
                     </div>
                   </div>
 
-                  <!-- NEW -->
+                
 
                   <div class="col-12-">
                     <div class="form-outline">
-                      <!-- <label class="form-label" for="todo"
-                        >Enter a task here</label -->
-
-                      <!-- <input
-                        name="title"
-                        placeholder="Enter Task..."
-                        required
-                        type="text"
-                        id="todo"
-                        class="form-contro"
-                      /> -->
-
-                      <!-- <div class="col-12">
-                        <label for="priority"
-                          >Select the priority of the app</label
-                        >
-                        <select
-                          class="btn border-warning p-2"
-                          required
-                          name="priority"
-                          id="priority"
-                        >
-                          <option class="btn" value="1">low</option>
-                          <option value="2">medium</option>
-                          <option value="3">high</option>
-                        </select>
-                      </div> -->
+                     
                       <div class="col-12 justify-content-start">
-                        <label for="datepicker">Due date</label>
+                        <label for="datepicker">Select due date</label>
                         <input
                           class="btn btn-outlined border"
                           required
@@ -109,19 +97,17 @@
                         />
                       </div>
                     </div>
-                    <div class="row justify-content-center">
-                      <button
+                    <div class="addButton addButton--added row justify-content-center">
+                      <button 
+
                         id="addBtn"
                         type="submit"
-                        class="btn btn-primary col-4"
-                      >
-                        Add
-                      </button>
+                        class="btn btn-primary col-6 ">  AddToDo Item </button>
                     </div>
                   </div>
                 </form>
                 <div class="container">
-                  <!-- <div class="display-6 text-warning">All Tasks</div> -->
+                 
                   <div class="col-12">
                     <label for="priority">Sort List by:</label>
                     <select
@@ -130,13 +116,16 @@
                       name="sort"
                       id="sort"
                     >
-                      <option value="">-</option>
-                      <option class="btn" value="name">name</option>
-                      <option value="priority">priority</option>
+                      <option value="">Sort By</option>
+                      <option class="btn" value="name">Name</option>
+                      <option value="priority">ID</option>
+                      <option value="priority">Priority Level</option>
+                      <option value="priority">All Tasks</option>
+                      <!-- <input type="button" text="xxx" onclick="window.alert('bla');" value="$name">Button</button> -->
                     </select>
                   </div>
                   <div class="row head border-bottom border-3 border-warning">
-                    <div class="col-2 text-primary">No</div>
+                    <div class="col-2 text-primary">ID</div>
                     <div class="col text-primary">Task</div>
                     <div class="col text-primary">Status</div>
                     <div class="col text-primary">Priority</div>
@@ -152,23 +141,23 @@
                       id="empty-list"
                       class="h3 text-white rounded text-center justify-content-center text-capitalize"
                     >
-                      no Todo tasks
+                      <h1>Nothing Here Yet</h1>
                     </div>
                   </div>
                 </ol>
-                <div class="container-fluid">
-                  <div class="h4 text-warning">Completed Tasks</div>
-                  <div class="row head border-bottom border-3 border-warning">
-                    <div class="col-2 text-primary">No</div>
-                    <div class="col text-primary">Task</div>
-                    <!-- <div class="col text-primary">Status</div> -->
-                    <div class="col text-primary">Priority</div>
-                    <div class="col text-primary">Status</div>
+                <div class="container-fluid text-center col-12">
+                  <div class="h4 text-center text-danger">COMPLETED TASKS</div>
+                  <div class="row head border-bottom border-3 border-danger">
+                    <div class="col-2 text-primary">ID</div>
+                    <div class="col-2 text-primary">Task</div>
+                    <div class="col-2 text-primary">Priority</div>
+                    <div class="col-2 text-primary">Status</div>
+                    <div class="col-2 text-primary">Delete</div>
                   </div>
-                  <ol style="margin-left: -20px">
+                  <ol style="">
                     <div
                       id="todo-complete"
-                      class="row border-bottom border-3 border-succes"
+                      class="row border-bottom border-3 border-danger"
                     ></div>
                   </ol>
                 </div>
@@ -178,14 +167,8 @@
         </div>
       </div>
     </section>
-    <div id="output" class="shadow" ;>
-      <div>
-        <!-- <label for="todo">What do you want todo?</label> -->
-        <!-- <input type="text" id="todo" placeholder="Enter a Todo." /> -->
-
-        <!-- <button class="btn warning" id="clear"></button> -->
       </div>
-    </div>
+    </div> -->
 
     <!-- JavaScript Bundle with Popper -->
     <script>

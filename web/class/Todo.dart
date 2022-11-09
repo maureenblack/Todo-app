@@ -9,9 +9,9 @@ class Todo {
   String dueDate;
 
   Todo(this.text, this.dueDate, this.priority, this.createdTime)
-      : this.id = _id++,
-        this.done = false,
-        this.pt = int.parse(priority);
+      : id = _id++,
+        done = false,
+        pt = int.parse(priority);
   Todo.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         text = json['text'],

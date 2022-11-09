@@ -103,7 +103,7 @@ void updateCompleteList() {
     div.children.add(spanTwo);
 
     div.className =
-        'odoClass px-3  rounded border-botom border-3 border-warning';
+        'todoClass px-3  rounded border-botom border-3 border-warning';
     uiCompleteList.children.add(div);
   });
 }

@@ -7,11 +7,9 @@ import 'storage.dart';
 
 void updateTodos() async {
   uiList.children.clear();
-
   if (todoList.isNotEmpty) {
     emptyList.className = 'd-none';
   }
-
   todoList.forEach((todo) async {
     int index = todoList.indexOf(todo);
     DateTime fomatter = DateTime.parse(todo!.dueDate);
@@ -33,10 +31,9 @@ void updateTodos() async {
     Element colTwo = Element.div();
     Element colThree = Element.div();
     Element colFour = Element.div();
-    Element colFive = Element.div();
-
-    buttonRemove.className = 'btn btn-primary fas fa-pen me-3';
-    // buttonRemove.id = todo.id.toString();
+    
+    buttonRemove.className = 'btn btn-primary fa-fa-pencil m-3';
+    buttonRemove.id = todo.id.toString();
     buttonRemove.id = todoList.indexOf(todo).toString();
 
     buttonRemove.text = 'Edit';
@@ -111,7 +108,6 @@ void editTodos(int id) {
   addTodo;
   removeTodos(id);
 }
-
 void removeTodos(int id) {
   todoList.removeAt(id);
   addStorage(todoList);
