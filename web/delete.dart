@@ -1,9 +1,9 @@
 import 'dart:html';
-import '../class/Todo.dart';
-import '../main.dart';
-import 'sort.dart';
-import 'storage.dart';
-import 'updateTodo.dart';
+import 'class/Todo.dart';
+import 'components/updateTodo.dart';
+import 'components/storage.dart';
+import 'main.dart';
+import 'components/sort.dart';
 
 void test(int id, event) async {
   // event.preventDefault();
@@ -24,7 +24,7 @@ void completeTodo(int id) {
   print("The id is ${todo!.id}");
   // Iterable<Todo?> complete = todoList.where((todo) => todo?.id == key);
   comList.add(todo);
-  print("this task was just completed ${todo.text}");
+  print("this task was deleted${todo.text}");
   // comList.add(complete.first);
   print("Length of complete list is ${comList.length}");
 
@@ -42,7 +42,7 @@ void updateCompleteList() {
   comList.forEach((todo) {
     DivElement div = DivElement();
     Element spanTwo = Element.div();
-    ButtonElement buttonRemove = ButtonElement();
+    ButtonElement buttonDelete = ButtonElement();
     Element span = Element.span();
     ButtonElement doneButton = ButtonElement();
 
@@ -51,16 +51,16 @@ void updateCompleteList() {
     Element colTwo = Element.div();
     Element colThree = Element.div();
     Element colFour = Element.div();
-    Element colFive = Element.div();
+    
 
-    buttonRemove.className = 'btn btn-primary';
-    buttonRemove.id = todo!.id.toString();
+    buttonDelete.className = 'btn btn-outlined';
+    buttonDelete.id = todo!.id.toString();
 
-    buttonRemove.text = 'clear';
+    buttonDelete.text = 'delete';
 
     doneButton.text = 'Completed';
     // doneButton.onClick.listen(completeTodo);
-    doneButton.className = 'btn btn-success complete';
+    doneButton.className = 'btn btn-outlined';
     doneButton.id = todo.id.toString();
 
     //First column in the todo list
@@ -77,7 +77,7 @@ void updateCompleteList() {
     //Third column in the todo list
     colThree.className = 'col';
     // late String demoText = todo.done ? 'completed' : 'in progress';
-    late String demoText = 'completed';
+    late String demoText = 'Completed';
     colThree.appendHtml(demoText);
     // div.children.add(colThree);
 
@@ -108,7 +108,7 @@ void updateCompleteList() {
   });
 }
 
-void removeAllTodos(MouseEvent event) {
-  uiList.children.clear();
+void removeTodo(MouseEvent event) {
+  // uiList.parent.clear();
   todoList.clear();
 }

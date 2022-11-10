@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:html';
 import '../class/Todo.dart';
 import 'addTodo.dart';
@@ -18,9 +20,12 @@ void updateTodos() async {
     DivElement div = DivElement();
     Element spanTwo = Element.div();
     ButtonElement buttonRemove = ButtonElement();
+    ButtonElement buttonDelete = ButtonElement();
     Element span = Element.span();
     ButtonElement doneButton = ButtonElement();
     InputElement checkbox = InputElement();
+    Element p = Element.p();
+
     checkbox.type = 'checkbox';
     checkbox.onChange.listen((event) {
       test(todo.id, event);
@@ -31,30 +36,38 @@ void updateTodos() async {
     Element colTwo = Element.div();
     Element colThree = Element.div();
     Element colFour = Element.div();
-    
-    buttonRemove.className = 'btn btn-primary fa-fa-pencil m-3';
-    buttonRemove.id = todo.id.toString();
-    buttonRemove.id = todoList.indexOf(todo).toString();
 
-    buttonRemove.text = 'Edit';
+    p.className = "fas fa-trash";
+    buttonDelete.className = 'border-0 btn';
+    buttonDelete.type = "button";
+    buttonDelete.children.add(p);
+    buttonDelete.id = todo.id.toString();
+    buttonDelete.onClick.listen(removeTodos);
+
+    buttonRemove.className = 'border-0 btn btn';
+    buttonRemove.id = todo.id.toString();
+
+    buttonRemove.text = '✏';
     buttonRemove.onClick.listen((event) => {editTodos(index)});
 
-    doneButton.text = 'Done';
+    doneButton.text = '✓';
     doneButton.onClick.listen((event) => {completeTodo(index)});
-    doneButton.className = 'btn btn-success uncomplete';
+    doneButton.className = 'border-0 btn btn-';
     doneButton.id = todo.id.toString();
 
     //First column in the todo list
     colOne.className = 'col-2 lend';
     colOne.appendHtml('<li style="margin-left:-100px;"></li>');
     // colOne.appendHtml(todo.id.toString());
+    colOne.children.add(buttonRemove);
     div.children.add(colOne);
 
     //Second column in the todo list
     colTwo.className = 'col title';
     colTwo.appendHtml(todo.text.toString());
-    div.children.add(colTwo);
 
+    div.children.add(colTwo);
+    div.children.add(buttonRemove);
     //Third column in the todo list
     colThree.className = 'col row';
 
@@ -74,20 +87,21 @@ void updateTodos() async {
     } else if (todo.priority.toString() == '2') {
       colFour.className =
           ' justify-content-center text-warning col  rounded-pill';
-      colFour.appendHtml('medium');
+      colFour.appendHtml('Medium');
     } else {
       colFour.className =
           ' justify-content-center text-success col  rounded-pill';
-      colFour.appendHtml('low');
+      colFour.appendHtml('Low');
     }
     div.children.add(colFour);
 
-    spanTwo.children.add(doneButton);
+    spanTwo.children.add(buttonDelete);
     spanTwo.children.add(buttonRemove);
-    if (DateTime.now().isAfter(DateTime.parse(todo.dueDate))) {
-      spanTwo.appendHtml(
-          '<div class="d-flex row col-12 text-danger text-center justify-content-end"> OverDue</div>');
-    }
+    spanTwo.children.add(doneButton);
+    // if (DateTime.now().isAfter(DateTime.parse(todo.dueDate))) {
+    //   spanTwo.appendHtml(
+    //       '<div class="d-flex row col-12 text-danger text-center justify-content-end"> OverDue</div>');
+    // }
     spanTwo.className = 'col row';
 
     // div.children.add(span);
@@ -106,10 +120,12 @@ void editTodos(int id) {
   date.value = todo?.dueDate;
   priority.value = todo?.priority;
   addTodo;
-  removeTodos(id);
 }
-void removeTodos(int id) {
-  todoList.removeAt(id);
+
+void removeTodos(MouseEvent event) {
+  Element button = (event.currentTarget as Element);
+  int key = int.parse(button.id.split('-')[0]);
+  todoList.removeWhere((todo) => todo!.id == key);
   addStorage(todoList);
   updateTodos();
 }
