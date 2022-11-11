@@ -43,6 +43,7 @@ void updateCompleteList() {
     DivElement div = DivElement();
     Element spanTwo = Element.div();
     ButtonElement buttonRemove = ButtonElement();
+
     Element span = Element.span();
     ButtonElement doneButton = ButtonElement();
 
@@ -52,11 +53,14 @@ void updateCompleteList() {
     Element colThree = Element.div();
     Element colFour = Element.div();
     Element colFive = Element.div();
+    Element p = Element.p();
 
-    buttonRemove.className = 'btn btn-primary';
+    p.className = "fas fa-trash";
+    buttonRemove.className = 'ms-2 border-0 btn';
     buttonRemove.id = todo!.id.toString();
-
-    buttonRemove.text = 'clear';
+    buttonRemove.type = "button";
+    buttonRemove.onClick.listen(removeTodos);
+    buttonRemove.children.add(p);
 
     doneButton.text = 'Completed';
     // doneButton.onClick.listen(completeTodo);
@@ -70,12 +74,12 @@ void updateCompleteList() {
     div.children.add(colOne);
 
     //Second column in the todo list
-    colTwo.className = 'col';
+    colTwo.className = 'col m-3 ';
     colTwo.appendHtml(todo.text.toString());
     div.children.add(colTwo);
 
     //Third column in the todo list
-    colThree.className = 'col';
+    colThree.className = 'col ';
     // late String demoText = todo.done ? 'completed' : 'in progress';
     late String demoText = 'completed';
     colThree.appendHtml(demoText);
@@ -97,7 +101,8 @@ void updateCompleteList() {
     div.children.add(colFour);
 
     spanTwo.children.add(doneButton);
-    spanTwo.className = 'col';
+    spanTwo.children.add(buttonRemove);
+    spanTwo.className = 'd-flex';
 
     // div.children.add(span);
     div.children.add(spanTwo);

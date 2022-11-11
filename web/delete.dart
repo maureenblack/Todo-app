@@ -51,14 +51,13 @@ void updateCompleteList() {
     Element colTwo = Element.div();
     Element colThree = Element.div();
     Element colFour = Element.div();
-    
 
     buttonDelete.className = 'btn btn-outlined';
     buttonDelete.id = todo!.id.toString();
 
     buttonDelete.text = 'delete';
 
-    doneButton.text = 'Completed';
+    doneButton.text = '';
     // doneButton.onClick.listen(completeTodo);
     doneButton.className = 'btn btn-outlined';
     doneButton.id = todo.id.toString();
@@ -76,8 +75,8 @@ void updateCompleteList() {
 
     //Third column in the todo list
     colThree.className = 'col';
-    // late String demoText = todo.done ? 'completed' : 'in progress';
-    late String demoText = 'Completed';
+    // late String demoText = todo.done ? '' : 'in progress';
+    late String demoText = '';
     colThree.appendHtml(demoText);
     // div.children.add(colThree);
 

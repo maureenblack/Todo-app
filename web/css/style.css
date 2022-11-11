@@ -28,7 +28,6 @@ body {
 #todo-list {
   margin: 25px 0 25px 0;
 }
-
 #todo-complete div {
   display: flex;
   flex-wrap: wrap;
